@@ -11,10 +11,10 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
             <div class="container">
-            <span class="navbar-brand">Feedback Board</span>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link text-white" href="/dashboard">داشبورد مدیریت</a>
-            </div>
+                <span class="navbar-brand">ثبت فیدبک</span>
+                <div class="navbar-nav ms-auto">
+                    <a class="btn btn-light" href="/dashboard">داشبورد مدیریت</a>
+                </div>
             </div>
         </nav>
 
@@ -27,14 +27,14 @@
 
                     <div id="alert-box" class="alert d-none" role="alert"></div>
 
-                    <form id="feedback-form">
+                    <form id="feedback-form" action="/feedback" method="post">>
                         <div class="mb-3">
-                        <label for="title" class="form-label">عنوان</label>
-                        <input type="text" class="form-control" id="title" maxlength="200" required />
+                            <label for="title" class="form-label">عنوان</label>
+                            <input type="text" id="title" name="title" class="form-control" maxlength="200" required />
                         </div>
                         <div class="mb-3">
-                        <label for="message" class="form-label">متن پیام</label>
-                        <textarea class="form-control" id="message" rows="5" required></textarea>
+                            <label for="message" class="form-label">متن پیام</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary w-100">ارسال فیدبک</button>
                     </form>
