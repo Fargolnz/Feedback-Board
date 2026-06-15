@@ -2,15 +2,21 @@
 
 A simple feedback management system built with FastAPI, SQLite, SQLAlchemy, and Bootstrap.
 
+---
+
 ## 📌 Overview
 
 This project allows users to submit feedback and enables administrators to review and update the status of submitted feedback through a dashboard.
 
 The application was developed as a small end-to-end product, focusing on simplicity, maintainability, and rapid delivery.
 
+---
+
 ## 👩🏻‍💻 Developer
 
 **Seyyedeh Fargol Nazemzadeh**
+
+---
 
 ## ✨ Features
 
@@ -32,6 +38,8 @@ The application was developed as a small end-to-end product, focusing on simplic
 * Under Review
 * Resolved
 
+---
+
 ## ⚙️ Technology Stack
 
 ### 🌐 Backend
@@ -45,6 +53,7 @@ The application was developed as a small end-to-end product, focusing on simplic
 * Jinja2 Templates
 * Bootstrap 5
 
+---
 
 ## 💡 Technical Decisions
 
@@ -59,6 +68,8 @@ SQLite is sufficient for the scope of this project and requires zero external co
 ### Why Server-Side Rendering?
 
 Since the project requirements are relatively small, Jinja2 templates provide a simpler solution than introducing a separate frontend framework.
+
+---
 
 ## 🗂️ Project Structure
 
@@ -87,6 +98,8 @@ feedback-board/
 ├── requirements.txt
 └── README.md
 ```
+
+---
 
 ## 🛠️ Installation
 
@@ -134,6 +147,8 @@ uvicorn app.main:app --reload
 ```text
 http://127.0.0.1:8000
 ```
+
+---
 
 ## 🖼️ Screenshots
 
