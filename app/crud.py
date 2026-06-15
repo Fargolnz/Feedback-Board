@@ -14,10 +14,14 @@ def create_feedback(db, title, message):
 
 
 def get_all_feedbacks(db):
-    return db.query(Feedback).all()
+    return(
+        db.query(Feedback)
+        .order_by(Feedback.created_at.desc())
+        .all()
+    )
 
 
-def update_status(db, feedback_id, new_status):
+def update_feedback_status(db, feedback_id, status):
     feedback = (
         db.query(Feedback)
         .filter(Feedback.id == feedback_id)
@@ -25,7 +29,8 @@ def update_status(db, feedback_id, new_status):
     )
 
     if feedback:
-        feedback.status = new_status
+        feedback.status = status
         db.commit()
-
+        db.refresh(feedback)
+        
     return feedback
