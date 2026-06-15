@@ -64,7 +64,7 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <form action="/feedback/{{ feedback.id }}/status" method="post">
+                                    <form action="/feedback/{{ feedback.id }}/status" method="post" class="d-flex justify-content-center align-items-start gap-2">
                                         <select name="status" class="form-select mb-2">
                                             <option value="registered">
                                                 ثبت شده
@@ -78,11 +78,7 @@
                                                 رسیدگی شده
                                             </option>
                                         </select>
-
-                                        <button
-                                            class="btn btn-primary">
-                                            ذخیره
-                                        </button>
+                                        <button type="submit" class="btn btn-primary">ذخیره</button>
                                     </form>
                                 </td>
                             </tr>
