@@ -1,4 +1,41 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+venv/
+env/
+.venv/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+*.tmp
+
+# Docker
+*.pid
+
+# Project specific
 feedback.db
+feedback.db-journal

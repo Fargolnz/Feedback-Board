@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: feedback-board
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./feedback.db:/app/feedback.db
+      - ./app/static:/app/app/static
+    environment:
+      - DATABASE_URL=sqlite:///./feedback.db
+    restart: unless-stopped

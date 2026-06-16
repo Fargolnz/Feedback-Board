@@ -58,14 +58,18 @@ To enhance security and prevent unauthorized status changes, a simple authentica
 
 ### 🌐 Backend
 
-* FastAPI
-* SQLAlchemy
-* SQLite
+* **FastAPI** - Modern, high-performance web framework for building APIs
+* **SQLAlchemy** - Powerful ORM for database interaction
+* **SQLite** - Lightweight, zero-configuration database
 
 ### 🎨 Frontend
 
-* Jinja2 Templates
-* Bootstrap 5
+* **Jinja2 Templates** - Server-side template rendering engine
+* **Bootstrap 5** - Responsive CSS framework for clean UI design
+
+### 🐳 Containerization
+* **Docker** - Containerization for consistent development and deployment
+* **Docker Compose** - Multi-container orchestration for easy management
 
 ---
 
@@ -84,7 +88,12 @@ SQLite is sufficient for the scope of this project and requires zero external co
 Since the project requirements are relatively small, Jinja2 templates provide a simpler solution than introducing a separate frontend framework.
 
 ### 4️⃣ Why Session-Based Authentication?
+
 Using sessions for authentication management is a simple and effective approach for small projects that don't require JWT or OAuth implementation. It integrates seamlessly with Jinja2 templates and provides a straightforward user experience.
+
+### 5️⃣ Why Docker?
+
+Docker ensures the application runs consistently across any system, eliminates complex manual setup, and isolates the app from your host environment—allowing you to run the project with just a few simple commands.
 
 ---
 
@@ -112,29 +121,80 @@ feedback-board/
 │
 ├── screenshots/
 │
+├── .dockerignore
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── docker-compose.yml
+├── Dockerfile
+├── README.md
+└── requirements.txt
 ```
 
 ---
 
 ## 🛠️ Installation
 
-### Clone Repository
+### 🐳 Running with Docker (Recommended)
+
+The easiest way to run the application without installing Python or any dependencies on your system.
+
+### ⚠️ Prerequisites
+
+[Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+
+### 🪜 Steps
+
+#### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Fargolnz/Feedback-Board.git
 cd Feedback-Board
 ```
 
-### Create Virtual Environment
+#### 2. Build the Docker image
+
+```bash
+docker-compose build
+```
+
+#### 3. Start the container
+
+```bash
+docker-compose up -d
+```
+#### 4. Access the application
+
+Open your browser and navigate to:
+
+```text
+http://localhost:8000
+```
+
+#### 5. Stop the container (when done)
+
+```bash
+docker-compose down
+```
+
+---
+
+### 💻 Local Installation (Without Docker)
+
+### 🪜 Steps
+
+#### 1. Clone Repository
+
+```bash
+git clone https://github.com/Fargolnz/Feedback-Board.git
+cd Feedback-Board
+```
+
+#### 2. Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### Activate Environment
+#### 3. Activate Environment
 
 Windows:
 
@@ -148,19 +208,19 @@ Linux / macOS:
 source venv/bin/activate
 ```
 
-### Install Dependencies
+#### 4. Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Application
+#### 5. Run Application
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-### Open
+#### 6. Open in Browser
 
 ```text
 http://127.0.0.1:8000
@@ -193,7 +253,7 @@ http://127.0.0.1:8000
 
 ## 📝 Additional Notes
 
-* The database is automatically created on the first run
+* The database is automatically created on the first run (in both Docker and local modes)
 * Status changes can only be performed by authenticated administrators
 * All feedback entries are stored with their creation timestamp
 * The application follows a simple, clean architecture that can be easily extended
