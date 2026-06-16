@@ -143,25 +143,25 @@ The easiest way to run the application without installing Python or any dependen
 
 ### 🪜 Steps
 
-#### 1. Clone the repository
+**1. Clone the repository**
 
 ```bash
 git clone https://github.com/Fargolnz/Feedback-Board.git
 cd Feedback-Board
 ```
 
-#### 2. Build the Docker image
+**2. Build the Docker image**
 
 ```bash
 docker-compose build
 ```
 
-#### 3. Start the container
+**3. Start the container**
 
 ```bash
 docker-compose up -d
 ```
-#### 4. Access the application
+**4. Access the application**
 
 Open your browser and navigate to:
 
@@ -169,7 +169,7 @@ Open your browser and navigate to:
 http://localhost:8000
 ```
 
-#### 5. Stop the container (when done)
+**5. Stop the container (when done)**
 
 ```bash
 docker-compose down
@@ -181,20 +181,20 @@ docker-compose down
 
 ### 🪜 Steps
 
-#### 1. Clone Repository
+**1. Clone Repository**
 
 ```bash
 git clone https://github.com/Fargolnz/Feedback-Board.git
 cd Feedback-Board
 ```
 
-#### 2. Create Virtual Environment
+**2. Create Virtual Environment**
 
 ```bash
 python -m venv venv
 ```
 
-#### 3. Activate Environment
+**3. Activate Environment**
 
 Windows:
 
@@ -208,19 +208,19 @@ Linux / macOS:
 source venv/bin/activate
 ```
 
-#### 4. Install Dependencies
+**4. Install Dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-#### 5. Run Application
+**5. Run Application**
 
 ```bash
 uvicorn app.main:app --reload
 ```
 
-#### 6. Open in Browser
+**6. Open in Browser**
 
 ```text
 http://127.0.0.1:8000
