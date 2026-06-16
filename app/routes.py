@@ -39,7 +39,6 @@ def submit_feedback(
     db = SessionLocal()
 
     try:
-
         create_feedback(
             db=db,
             title=title,
@@ -47,7 +46,6 @@ def submit_feedback(
         )
 
     finally:
-
         db.close()
 
     return RedirectResponse(
@@ -56,25 +54,80 @@ def submit_feedback(
     )
 
 
+@router.get("/login")
+def login_page(request: Request):
+
+    return templates.TemplateResponse(
+        "login.html",
+        {
+            "request": request,
+            "error": False
+        }
+    )
+
+
+@router.post("/login")
+def login(
+    request: Request,
+    username: str = Form(...),
+    password: str = Form(...)
+):
+
+    if (
+        username == "admin"
+        and
+        password == "verystrongpass"
+    ):
+
+        request.session["admin"] = username
+
+        return RedirectResponse(
+            "/dashboard",
+            status_code=303
+        )
+
+    return templates.TemplateResponse(
+        "login.html",
+        {
+            "request": request,
+            "error": True
+        }
+    )
+
+
+@router.get("/logout")
+def logout(request: Request):
+
+    request.session.clear()
+
+    return RedirectResponse(
+        "/",
+        status_code=303
+    )
+
+
 @router.get("/dashboard")
 def dashboard_page(request: Request):
+
+    if not request.session.get("admin"):
+        return RedirectResponse(
+            "/login",
+            status_code=303
+        )
 
     db = SessionLocal()
 
     try:
-
         feedbacks = get_all_feedbacks(db)
 
     finally:
-
         db.close()
 
     return templates.TemplateResponse(
         "dashboard.html",
         {
             "request": request,
-            "feedbacks": feedbacks,
-            "page": "dashboard"
+            "feedbacks": feedbacks
         }
     )
 
@@ -88,7 +141,6 @@ def change_feedback_status(
     db = SessionLocal()
 
     try:
-
         update_feedback_status(
             db=db,
             feedback_id=feedback_id,
@@ -96,7 +148,6 @@ def change_feedback_status(
         )
 
     finally:
-
         db.close()
 
     return RedirectResponse(

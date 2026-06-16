@@ -1,4 +1,4 @@
-# 📝Feedback Board
+# 💬 Feedback Board
 
 A simple feedback management system built with FastAPI, SQLite, SQLAlchemy, and Bootstrap.
 
@@ -28,15 +28,29 @@ The application was developed as a small end-to-end product, focusing on simplic
 
 ### 🛡️ Admin Dashboard
 
+* Secure Authentication for dashboard access
 * View all submitted feedback
 * Track feedback status
 * Update feedback status
 
 ### 📬 Supported Statuses
 
-* Registered
-* Under Review
-* Resolved
+* **Registered** (default status when feedback is created)
+* **Under Review**
+* **Resolved**
+
+---
+
+## 🔐 Authentication
+To enhance security and prevent unauthorized status changes, a simple authentication system has been implemented:
+
+* **Admin Login:** Users must enter a username and password to access the admin dashboard
+
+* **Route Protection:** Unauthenticated users are automatically redirected to the login page when attempting to access the dashboard
+
+* **Session Management:** Upon successful login, user information is stored in the session; clicking the logout button clears the session
+
+* **Simple Validation:** Currently uses hardcoded credentials, with the flexibility to extend to a database-based authentication system in the future
 
 ---
 
@@ -57,17 +71,20 @@ The application was developed as a small end-to-end product, focusing on simplic
 
 ## 💡 Technical Decisions
 
-### Why FastAPI?
+### 1️⃣ Why FastAPI?
 
 FastAPI provides a lightweight and modern framework that allows rapid backend development while keeping the codebase clean and maintainable.
 
-### Why SQLite?
+### 2️⃣ Why SQLite?
 
 SQLite is sufficient for the scope of this project and requires zero external configuration, making the setup process simple.
 
-### Why Server-Side Rendering?
+### 3️⃣ Why Server-Side Rendering?
 
 Since the project requirements are relatively small, Jinja2 templates provide a simpler solution than introducing a separate frontend framework.
+
+### 4️⃣ Why Session-Based Authentication?
+Using sessions for authentication management is a simple and effective approach for small projects that don't require JWT or OAuth implementation. It integrates seamlessly with Jinja2 templates and provides a straightforward user experience.
 
 ---
 
@@ -86,7 +103,8 @@ feedback-board/
 │   │
 │   ├── templates/
 │   │   ├── dashboard.html
-│   │   └── feedback.html
+│   │   ├── feedback.html
+│   │   └── login.html
 │   │
 │   └── static/
 │       └── css/
@@ -150,12 +168,32 @@ http://127.0.0.1:8000
 
 ---
 
+## 🔑 Admin Login Credentials
+* **Username:** ```admin```
+
+* **Password:** ```verystrongpass```
+
+---
+
 ## 🖼️ Screenshots
 
-### 💬 Feedback Submission Page
+### 💬 Feedback Submission
 
 ![Feedback](screenshots/feedback-screenshot.png)
 
-### 💻Dashboard
+### 🔐 Login Panel
+
+![Login](screenshots/login-screenshot.png)
+
+### 💻 Admin Dashboard
 
 ![Dashboard](screenshots/dashboard-screenshot.png)
+
+---
+
+## 📝 Additional Notes
+
+* The database is automatically created on the first run
+* Status changes can only be performed by authenticated administrators
+* All feedback entries are stored with their creation timestamp
+* The application follows a simple, clean architecture that can be easily extended
